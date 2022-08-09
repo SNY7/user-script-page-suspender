@@ -30,7 +30,7 @@ if (window.location.href.startsWith(baseUrl)) {
           ctx.drawImage(hiddenIcon, 0, 0);
           const base64Icon = canvas.toDataURL("image/png");
           const link = document.querySelector("link[rel*='icon']") || document.createElement('link');
-          link.type = 'image/x-icon';
+          link.type = base64Icon.substring(5, base64Icon.indexOf(';'));
           link.rel = 'shortcut icon';
           link.href = base64Icon;
           document.getElementsByTagName('head')[0].appendChild(link);
