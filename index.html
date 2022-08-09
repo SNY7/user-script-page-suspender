@@ -57,30 +57,10 @@
   const urlParams = new URLSearchParams(window.location.search);
   const title = urlParams.get('title');
   const uri = urlParams.get('uri');
-  const icon = urlParams.get('icon');
 
   document.querySelector('title').textContent = title;
   document.getElementById('title').textContent = title;
-  document.getElementById('icon').src = icon;
   document.getElementById('url').textContent = uri;
-
-  const hiddenIcon = new Image();
-  hiddenIcon.crossOrigin="anonymous"
-  hiddenIcon.onload = function() {
-    const canvas = document.createElement("canvas");
-    canvas.width = hiddenIcon.width;
-    canvas.height = hiddenIcon.height;
-    const ctx = canvas.getContext("2d");
-    ctx.globalAlpha = 0.5;
-    ctx.drawImage(hiddenIcon, 0, 0);
-    const base64Icon = canvas.toDataURL("image/png");
-    const link = document.querySelector("link[rel*='icon']") || document.createElement('link');
-    link.type = 'image/x-icon';
-    link.rel = 'shortcut icon';
-    link.href = base64Icon;
-    document.getElementsByTagName('head')[0].appendChild(link);
-  };
-  hiddenIcon.src = icon;
 
   window.addEventListener('click', () => {
     window.location.href = uri;

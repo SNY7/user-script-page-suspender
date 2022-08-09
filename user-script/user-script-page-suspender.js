@@ -8,7 +8,7 @@
 // @description 8/9/2022, 11:01:34 PM
 // ==/UserScript==
 
-const baseUrl = 'http://localhost:63342/user-script-page-suspender/index.html';
+const baseUrl = 'https://user-script-page-suspender.pages.dev/';
 
 if (window.location.href.startsWith(baseUrl)) {
   const urlParams = new URLSearchParams(window.location.search);
